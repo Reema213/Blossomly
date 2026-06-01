@@ -1,0 +1,433 @@
+/* 1. GLOBAL VARIABLES & RESET */
+:root {
+    --color-pink-bg: #FCE4EC;
+    --color-text-dark: #4E342E;
+    --color-text-light: #8D6E63;
+    --color-green: #558B2F;
+    --color-red-badge: #D32F2F;
+
+    --sage-green: #A5D6A7;
+    --sage-green-hover: #81C784;
+    --dark-brown: #3E2723;
+    --white: #ffffff;
+    --soft-pink: #FFCDD2;
+    --gray-text: #757575;
+
+    --font-logo: 'Playfair Display', serif;
+    --font-nav: 'Lato', sans-serif;
+    --container-width: 1200px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-nav);
+    color: var(--color-text-dark);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--color-pink-bg);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+/* 2. HEADER STYLES */
+.site-header {
+    background-color: var(--color-pink-bg);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+/* 3. GRID LAYOUT FOR HEADER */
+.header-container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+}
+
+.brand-logo {
+    font-family: var(--font-logo);
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    letter-spacing: -0.5px;
+}
+
+.main-nav {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+}
+
+.main-nav a {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--color-text-dark);
+    transition: color 0.3s;
+}
+
+.main-nav a:hover {
+    color: var(--color-green);
+}
+
+.nav-admin-name {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+}
+
+.nav-logout-btn {
+    background: none;
+    border: none;
+    font-family: var(--font-nav);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--color-red-badge);
+    cursor: pointer;
+    padding: 0;
+    transition: opacity 0.3s;
+}
+
+.nav-logout-btn:hover {
+    opacity: 0.75;
+}
+
+/* 4. CART STYLES */
+.cart-section {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.cart-icon-wrapper {
+    position: relative;
+    width: 28px;
+    height: 28px;
+}
+
+.cart-icon-wrapper svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--color-text-dark);
+}
+
+.cart-badge {
+    position: absolute;
+    top: -6px;
+    right: -8px;
+    background-color: var(--color-red-badge);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+}
+
+.cart-info {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.cart-label {
+    font-size: 0.7rem;
+    color: var(--color-text-light);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.cart-price {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-text-dark);
+}
+
+/* 5. PRODUCT DETAILS LAYOUT  */
+.main-content {
+    flex: 1;
+    padding: 4rem 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.product-container {
+    max-width: var(--container-width);
+    width: 100%;
+    background-color: var(--white);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(62, 39, 35, 0.1);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* 6. IMAGE STYLES */
+.product-image-section {
+    background-color: #fdfdfd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.product-image-section img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* 7. PRODUCT DETAILS */
+.product-details-section {
+    padding: 3rem 3rem 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.product-category {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-text-light);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.product-title {
+    font-size: 2.5rem;
+    color: var(--dark-brown);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.product-price {
+    font-size: 1.8rem;
+    color: var(--color-green);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    font-family: var(--font-logo);
+}
+
+.product-description {
+    font-size: 1rem;
+    color: var(--gray-text);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* 8. FORM ELEMENTS */
+.product-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.quantity-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.quantity-wrapper label {
+    font-weight: 700;
+    color: var(--dark-brown);
+}
+
+.quantity-wrapper input[type="number"] {
+    width: 80px;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-family: var(--font-nav);
+    font-size: 1rem;
+    text-align: center;
+}
+
+.quantity-wrapper input[type="number"]:focus {
+    outline: none;
+    border-color: var(--sage-green);
+}
+
+.button-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.btn {
+    flex: 1;
+    padding: 16px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--sage-green);
+    color: var(--dark-brown);
+    border: 2px solid var(--sage-green);
+}
+
+.btn-primary:hover {
+    background-color: var(--sage-green-hover);
+    border-color: var(--sage-green-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(133, 197, 132, 0.4);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--dark-brown);
+    border: 2px solid var(--dark-brown);
+}
+
+.btn-secondary:hover {
+    background-color: var(--dark-brown);
+    color: var(--white);
+}
+
+/* 9. HELP BUTTON STYLES */
+.help-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: var(--color-pink-bg);
+    border: 1px solid var(--color-text-light);
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    color: var(--color-text-dark);
+    z-index: 999;
+}
+
+.help-btn:hover {
+    background-color: var(--soft-pink);
+}
+
+/* 10. HELP POPUP STYLES */
+#popupHelp {
+    position: fixed;
+    bottom: 5rem;
+    right: 2rem;
+    background-color: var(--white);
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 1.5rem;
+    width: 260px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    z-index: 1000;
+}
+
+#popupHelp h3 {
+    font-size: 1rem;
+    color: var(--dark-brown);
+    margin-bottom: 0.5rem;
+}
+
+#popupHelp p {
+    font-size: 0.9rem;
+    color: var(--gray-text);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.popup-btn {
+    background-color: var(--sage-green);
+    color: var(--dark-brown);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.popup-btn:hover {
+    background-color: var(--sage-green-hover);
+}
+.help-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: #FCE4EC;
+    border: 1px solid #8D6E63;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    color: #4E342E;
+    z-index: 999;
+}
+
+.help-btn:hover {
+    background-color: #FFCDD2;
+}
+
+/* 11. FOOTER STYLES */
+.site-footer {
+    background-color: var(--dark-brown);
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: auto;
+}
+
+/* 10. RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .header-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .cart-section {
+        justify-self: center;
+    }
+
+    .product-container {
+        grid-template-columns: 1fr;
+    }
+
+    .product-details-section {
+        padding: 2rem;
+    }
+
+    .product-title {
+        font-size: 2rem;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+}
